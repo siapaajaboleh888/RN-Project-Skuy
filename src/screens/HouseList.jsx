@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
+import Tombol from '../components/Tombol';
+import Card from '../components/Card';
 
 const HouseList = ({ navigation }) => {
   const houses = [
@@ -19,8 +21,8 @@ const HouseList = ({ navigation }) => {
     <View style={{ flex: 1, padding: 10 }}>
       <FlatList
         data={houses}
-        renderItem={({ item }) => <HouseList houses={item} />}
-        keyExtractor={item => item.id.toString()}
+        renderItem={({ item }) => <Card houses={item} />}
+        keyExtractor={item => item.id}
       />
       <Tombol title="Kembali ke halaman utama" onPress={() => navigation.navigate('Home')} />
     </View>
