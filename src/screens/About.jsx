@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import Tombol from '../components/Tombol';
 
 const About = ({ navigation }) => {
   return (
