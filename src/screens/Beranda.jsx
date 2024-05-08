@@ -4,7 +4,7 @@ import Tombol from '../components/Tombol';
 
 
 
-const Home = ({navigation}) => {
+const Beranda = ({navigation}) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text style={{ fontSize: 24, marginBottom: 20 }}>Cari Penginapan di Skuy aja !</Text>
@@ -13,4 +13,4 @@ const Home = ({navigation}) => {
   );
 };
 
-export default Home;
+export default Beranda;

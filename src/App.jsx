@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image } from 'react-native';
-import Home from './screens/Home';
+import Beranda from './screens/Beranda';
 import About from './screens/About';
-import Contact from './screens/Contact';
+import Kontak from './screens/Kontak';
 import HouseList from './screens/HouseList';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,16 +13,16 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} options={{
-          tabBarLabel: 'Home',
+      <Tab.Screen name="Beranda" component={Beranda} options={{
+          tabBarLabel: 'Beranda',
           tabBarIcon: ({ color, size }) => (
-            <Image source={require('./asset/Home.png')} style={{width:25,height:25}} />
+            <Image source={require('./asset/Beranda.png')} style={{width:25,height:25}} />
           ),
         }} />
-      <Tab.Screen name="Contact" component={Contact} options={{
-       tabBarLabel: 'Contact',
+      <Tab.Screen name="Kontak" component={Kontak} options={{
+       tabBarLabel: 'Kontak',
           tabBarIcon: ({ color, size }) => (
-            <Image source={require('./asset/contac.png')} style={{width:25,height:25}} />
+            <Image source={require('./asset/Kontak.png')} style={{width:25,height:25}} />
           ),
         }}/>
       <Tab.Screen name="About" component={About} options={{
