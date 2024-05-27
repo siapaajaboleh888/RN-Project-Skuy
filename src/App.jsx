@@ -1,56 +1,46 @@
+// App.js
 import React from 'react';
-import { Image } from 'react-native';
-import Beranda from './screens/Beranda';
-import About from './screens/About';
-import Kontak from './screens/Kontak';
-import HouseList from './screens/HouseList';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+import Beranda from './screens/Beranda';
+import PasarModalScreen from './screens/PasarModalScreen';
+import KunjunganScreen from './screens/KunjunganScreen';
+import AkunScreen from './screens/AkunScreen';
 
 const Tab = createBottomTabNavigator();
 
-function MyTabs() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Beranda" component={Beranda} options={{
-          tabBarLabel: 'Beranda',
-          tabBarIcon: ({ color, size }) => (
-            <Image source={require('./asset/Beranda.png')} style={{width:25,height:25}} />
-          ),
-        }} />
-      <Tab.Screen name="Kontak" component={Kontak} options={{
-       tabBarLabel: 'Kontak',
-          tabBarIcon: ({ color, size }) => (
-            <Image source={require('./asset/Kontak.png')} style={{width:25,height:25}} />
-          ),
-        }}/>
-      <Tab.Screen name="About" component={About} options={{
-       tabBarLabel: 'About',
-          tabBarIcon: ({ color, size }) => (
-            <Image source={require('./asset/about.png')} style={{width:25,height:25}} />
-          ),
-        }}/>
-      <Tab.Screen name='HouseList' component={HouseList} options={{
-      tabBarLabel: 'Houslist',
-          tabBarIcon: ({ color, size }) => (
-            <Image source={require('./asset/houslist.png')} style={{width:25,height:25}} />
-          ),
-        }} />
-    </Tab.Navigator>
-  );
-}
-
-      
-const Stack = createNativeStackNavigator();
-
-function App() {
+const App = () => {
   return (
     <NavigationContainer>
-      <MyTabs/>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ color, size }) => {
+            let iconName;
+            if (route.name === 'Beranda') {
+              iconName = 'home';
+            } else if (route.name === 'Pasar Modal') {
+              iconName = 'shopping-cart';
+            } else if (route.name === 'Kunjungan') {
+              iconName = 'calendar';
+            } else if (route.name === 'Akun') {
+              iconName = 'user';
+            }
+            return <FontAwesome name={iconName} color={color} size={size} />;
+          },
+          tabBarActiveTintColor: 'green',
+          tabBarInactiveTintColor: 'gray',
+          tabBarStyle: { display: 'flex' }, // Fix: remove the array and null value
+        })}
+      >
+        <Tab.Screen name="Beranda" component={Beranda} />
+        <Tab.Screen name="Pasar Modal" component={PasarModalScreen} />
+        <Tab.Screen name="Kunjungan" component={KunjunganScreen} />
+        <Tab.Screen name="Akun" component={AkunScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
-
   );
-}
+};
 
 export default App;

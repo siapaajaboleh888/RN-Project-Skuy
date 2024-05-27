@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Skuy</string>
+    <string name="app_name">InvestCow</string>
+    <string name="font_fontawesome">FontAwesome.ttf</string>
 </resources>
