@@ -1,8 +1,12 @@
+// components/AkunScreen.js
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
 
 const AkunScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.profileContainer}>
@@ -18,27 +22,27 @@ const AkunScreen = () => {
       </View>
 
       <View style={styles.menuContainer}>
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Profil')}>
           <Icon name="user" size={20} style={styles.menuIcon} />
           <Text style={styles.menuText}>Profil</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Pengaturan')}>
           <Icon name="cog" size={20} style={styles.menuIcon} />
           <Text style={styles.menuText}>Pengaturan</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('FAQ')}>
           <Icon name="question-circle" size={20} style={styles.menuIcon} />
           <Text style={styles.menuText}>FAQ</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('TentangAplikasi')}>
           <Icon name="info-circle" size={20} style={styles.menuIcon} />
           <Text style={styles.menuText}>Tentang Aplikasi</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Keluar')}>
           <Icon name="sign-out" size={20} style={styles.menuIcon} />
           <Text style={styles.menuText}>Keluar</Text>
         </TouchableOpacity>

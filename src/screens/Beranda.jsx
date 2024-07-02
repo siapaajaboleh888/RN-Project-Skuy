@@ -1,39 +1,65 @@
-// screens/BerandaScreen.js
+// screens/Beranda.js
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Dimensions } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  FlatList, 
+  TouchableOpacity, 
+  Dimensions 
+} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
 
 const menuItems = [
-  { id: 1, title: 'Kas', icon: 'money' },
-  { id: 2, title: 'Pasar', icon: 'shopping-cart' },
-  { id: 3, title: 'Kesehatan', icon: 'medkit' },
-  { id: 4, title: 'Penjualan', icon: 'line-chart' },
-  { id: 5, title: 'Kandang', icon: 'paw' },
-  { id: 6, title: 'Pembayaran', icon: 'credit-card' },
+  { id: 1, title: 'Kas', icon: 'money', screen: 'Kas' },
+  { id: 2, title: 'Pasar', icon: 'shopping-cart', screen: 'Pasar' },
+  { id: 3, title: 'Kesehatan', icon: 'medkit', screen: 'Kesehatan' },
+  { id: 4, title: 'Penjualan', icon: 'line-chart', screen: 'Penjualan' },
+  { id: 5, title: 'Kandang', icon: 'paw', screen: 'Kandang' },
+  { id: 6, title: 'Pembayaran', icon: 'credit-card', screen: 'Pembayaran' },
 ];
 
 const { width } = Dimensions.get('window');
-const itemWidth = (width - 48) / 3; // Mengatur lebar item dengan 3 item per baris
+const itemWidth = (width - 48) / 3;
 
 const Beranda = () => {
+  const navigation = useNavigation();
+
   const renderMenuItem = ({ item }) => (
-    <TouchableOpacity style={[styles.menuItem, { width: itemWidth }]}>
-      <FontAwesome name={item.icon} size={24} color="#007AFF" style={styles.menuItemIcon} />
+    <TouchableOpacity
+      style={[styles.menuItem, { width: itemWidth }]}
+      onPress={() => navigation.navigate(item.screen)}
+    >
+      <FontAwesome 
+        name={item.icon} 
+        size={24} 
+        color="#007AFF" 
+        style={styles.menuItemIcon} 
+      />
       <Text style={styles.menuItemText}>{item.title}</Text>
     </TouchableOpacity>
   );
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.investorButton}>
-        <FontAwesome name="briefcase" size={18} color="#FFFFFF" style={styles.investorIcon} />
+      <TouchableOpacity
+        style={styles.investorButton}
+        onPress={() => navigation.navigate('Investor')}
+      >
+        <FontAwesome 
+          name="briefcase" 
+          size={18} 
+          color="#FFFFFF" 
+          style={styles.investorIcon} 
+        />
         <Text style={styles.investorButtonText}>Investor</Text>
       </TouchableOpacity>
       <FlatList
         data={menuItems}
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderMenuItem}
-        numColumns={3} // Mengatur 3 item per baris
+        numColumns={3}
       />
     </View>
   );
@@ -57,9 +83,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   menuItemIcon: {
-    backgroundColor: '#E0E0E0', // Menambahkan warna latar belakang biru muda untuk ikon
-    borderRadius: 8, // Membuat ikon berbentuk lingkaran
-    padding: 8, // Menambahkan padding untuk memberikan ruang di sekitar ikon
+    backgroundColor: '#E0E0E0',
+    borderRadius: 8,
+    padding: 8,
   },
   investorButton: {
     backgroundColor: '#007AFF',

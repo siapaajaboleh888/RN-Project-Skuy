@@ -88,7 +88,7 @@ const KunjunganScreen = () => {
       )}
 
       <TouchableOpacity style={styles.addButton} onPress={handleAddKunjungan}>
-        <Text style={styles.addButtonText}>Tambah Kunjungan</Text>
+        <Text style={styles.addButtonText}>Tambahkan Kunjungan</Text>
       </TouchableOpacity>
 
       <FlatList
