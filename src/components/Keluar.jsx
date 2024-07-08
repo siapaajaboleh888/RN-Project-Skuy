@@ -1,11 +1,29 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, BackHandler, Alert } from 'react-native';
 
-const KeluarScreen = ({ navigation }) => {
+const Keluar = ({ navigation }) => {
   const handleLogout = () => {
-    // Implementasikan logika logout di sini
-    // Setelah logout, arahkan ke halaman login atau home
-    navigation.navigate('Login'); // Ganti 'Login' dengan nama screen login Anda
+    Alert.alert(
+      "Konfirmasi",
+      "Apakah Anda yakin ingin keluar dari aplikasi?",
+      [
+        {
+          text: "Batal",
+          onPress: () => console.log("Batal keluar"),
+          style: "cancel"
+        },
+        { 
+          text: "Ya", 
+          onPress: () => {
+            // Implementasikan logika logout di sini
+            // Misalnya, hapus token, reset state, dll.
+            
+            // Keluar dari aplikasi
+            BackHandler.exitApp();
+          }
+        }
+      ]
+    );
   };
 
   return (
@@ -43,4 +61,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default KeluarScreen;
+export default Keluar;
