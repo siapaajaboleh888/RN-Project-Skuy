@@ -16,11 +16,11 @@ const FAQScreen = () => {
       answer: "Kami menerapkan sistem manajemen risiko yang ketat dan bekerja sama dengan peternak berpengalaman. Namun, seperti investasi lainnya, ada risiko yang terkait. Kami menyarankan untuk membaca prospektus kami dan berkonsultasi dengan penasihat keuangan sebelum berinvestasi."
     },
     {
-      question: "Bagaimana SapiVest memastikan kesejahteraan sapi?",
+      question: "Bagaimana InvestCow memastikan kesejahteraan sapi?",
       answer: "Kami berkomitmen pada praktik peternakan etis dan berkelanjutan. Tim dokter hewan kami secara rutin memeriksa kesehatan sapi, dan kami menggunakan teknologi IoT untuk pemantauan kondisi sapi secara real-time."
     },
     {
-      question: "Berapa minimum investasi di SapiVest?",
+      question: "Berapa minimum investasi di InvestCow?",
       answer: "Minimum investasi dimulai dari pembelian 1 unit saham sapi. Harga per unit bervariasi tergantung pada jenis sapi dan proyeksi pertumbuhannya. Detail lengkap dapat dilihat di bagian 'Investasi' aplikasi kami."
     },
     {
@@ -28,7 +28,7 @@ const FAQScreen = () => {
       answer: "Anda dapat menjual saham Anda melalui platform kami sesuai dengan periode lock-up yang berlaku. Proses pencairan biasanya memakan waktu 3-5 hari kerja setelah permintaan disetujui."
     },
     {
-      question: "Apakah ada biaya yang dikenakan untuk menggunakan SapiVest?",
+      question: "Apakah ada biaya yang dikenakan untuk menggunakan InvestCow?",
       answer: "Kami mengenakan biaya manajemen tahunan sebesar 2% dari nilai investasi dan biaya kinerja 20% dari keuntungan. Semua biaya transparan dan dapat dilihat di dashboard investasi Anda."
     }
   ];
